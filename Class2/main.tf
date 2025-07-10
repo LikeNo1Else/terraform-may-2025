@@ -1,6 +1,6 @@
 resource "aws_key_pair" "deployer" {
   depends_on = [time_sleep.wait_seconds]
-  key_name   = "deployer-key"
+  key_name   = "bastion-key"
   public_key = file("~/.ssh/id_rsa.pub")
 }
 
@@ -17,5 +17,5 @@ resource "aws_s3_object" "object" {
 }
 
 resource "time_sleep" "wait_seconds" {
-  create_duration = "5s"
+  create_duration = "1s"
 }
