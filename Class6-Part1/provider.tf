@@ -12,16 +12,13 @@ provider "aws" {
 }
 
 
-
 module "may" {
   source  = "LikeNo1Else/may/vpc"
-  version = "1.0.0"
+  version = "21.0.0"
 
-
-  vpc_cidr =  ["10.0.0.0/16"]
-  subnet1_cidr  = ["10.0.1.0/24"]
-  subnet2_cidr  = ["10.0.2.0/24"]
-  subnet3_cidr  = ["10.0.3.0/24"]
-
-
+  vpc_cidr =  ["172.31.0.0/16"]
+  subnet1_cidr  = ["172.31.1.0/24"]
+  subnet2_cidr  = ["172.31.2.0/24"]
+  subnet3_cidr  = ["172.31.3.0/24"]
+  vpc_name = "kaizen"
 }
