@@ -1,8 +1,3 @@
-provider aws {
-region = "us-east-1"
-}
-
-
 resource "aws_vpc" "main" {
   cidr_block = var.vpc_cidr
 
@@ -10,7 +5,6 @@ resource "aws_vpc" "main" {
     Name = "${var.environment}-vpc"
   }
 }
-
 resource "aws_subnet" "main1" {
   vpc_id     = aws_vpc.main.id
   cidr_block = var.subnet1_cidr
@@ -20,10 +14,18 @@ resource "aws_subnet" "main1" {
   }
 }
 
-variable vpc_cidr { default = "10.0.0.0/16"}
-variable subnet1_cidr { default = "10.0.1.0/24"}
-variable environment { default = "dev" }
 
-# output subnet {
-#   value = aws_subnet.main1.id
-# }
+variable vpc_cidr {}
+variable subnet1_cidr {}
+variable environment {}
+
+
+output subnet {
+  value = aws_subnet.main1.id
+}
+
+provider aws {
+  region = var.region
+}
+
+variable region {}
