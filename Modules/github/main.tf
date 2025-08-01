@@ -13,8 +13,7 @@ provider "aws" {
 
 
 module "may" {
-  source  = "LikeNo1Else/may/vpc"
-  version = "2.0.0"
+  source  = "git@github.com:LikeNo1Else/terraform-vpc-may.git?ref=v2.0.0"
   vpc_cidr = "172.31.0.0/16"
   subnet1_cidr = "172.31.1.0/24"
   subnet2_cidr = "172.31.2.0/24" 
